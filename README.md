@@ -32,7 +32,7 @@ Start a `/grill-me` session, then paste the following prompt and answer the ques
 ```
 Create an agent named **Me Time**, in folder `agents/me-time`. Its purpose is to help the user make the best use of their time throughout the day. In its initial formulation, it should not attempt to retrieve any external information or ask any details about the user. It should simply return a generic message that encourages the user to be mindful and goal oriented. 
 
-Use ADK to bootstrap the agent, and prepare it to deploy to Agent Runtime, but do not deploy it. Do not create evaluations. Use Gemini 3.8 Flash with Medium thinking for all LLM calls. Use Application Default Credentials (not an API Key) to authenticate to Google Cloud. Run the agent locally.
+Use ADK to bootstrap the agent, and prepare it to deploy to Agent Runtime, but do not deploy it. Do not create evaluations. Use Gemini 3.8 Flash with Medium thinking for all LLM calls. Use Application Default Credentials (not an API Key) to authenticate to Google Cloud. Run the agent locally, using `agents-cli`.
 ```
 
 _Open the agent on localhost and test it_
@@ -87,7 +87,7 @@ Create another agent, in folder `agents/schedule`. Its purpose is to provide the
 
 Update the me-time agent to accept an environment variable which contains the URL of the sechedule agent's Agent Card. Update the me-time agent to invoke the schedule agent via A2A in parallel with the "outdoor optimizer" and "local events" agents. Use the information about the user's schedule to inform their daily agenda.
 
-Run the schedule agent locally, and restart the schedule agent.
+Run the schedule agent locally using `agents-cli`, and restart the schedule agent.
 ```
 
 ### Deploy to Agent Runtime
@@ -101,4 +101,22 @@ _Open Google Cloud Console, then navigate to Agent Runtime, and test it out_
 Start a `/grill-me` session, then paste the following prompt and answer the questions; review the implementation plan and revise as needed, then proceed.
 ```
 Create evaluations for the me-time agent. Run the evaluation suite and report its success.
+```
+
+### Optional: Register with Gemini Enterprise
+
+1. Determine your Gemini Enterprise App ID -- find it in the cloud console. 
+
+2. Run the following prompt in Antigravity, and follow any instructions it provides:
+```
+Register the `me-time` agent with the Gemini Enterprise app `<APP_ID>`
+```
+
+### Optional: optimize performance
+
+1. Nativate to the "Traces" tab panel in the Agent Runtime Deployments page for `me-time`. Open a trace and copy the Trace JSON data.
+
+2. Start a `/grill-me` session in Antigravity, run the following prompt, and answer any questions:
+```
+Review the following trace data and recommend performance improvements: `<TRACE_DATA>`
 ```
