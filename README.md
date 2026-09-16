@@ -32,7 +32,7 @@ Start a `/grill-me` session, then paste the following prompt and answer the ques
 ```
 Create an agent named **Me Time**, in folder `agents/me-time`. Its purpose is to help the user make the best use of their time throughout the day. In its initial formulation, it should not attempt to retrieve any external information or ask any details about the user. It should simply return a generic message that encourages the user to be mindful and goal oriented. 
 
-Use ADK to bootstrap the agent, and prepare it to deploy to Agent Runtime, but do not deploy it. Do not create evaluations. Use Gemini 3.8 Flash with Medium thinking for all LLM calls. Use Application Default Credentials (not an API Key) to authenticate to Google Cloud. Run the agent locally, using `agents-cli`.
+Use ADK to bootstrap the agent, and prepare it to deploy to Agent Runtime, but do not deploy it. Do not create evaluations. Use Gemini 3.8 Flash with Medium thinking for all LLM calls. Use Application Default Credentials (not an API Key) to authenticate to Google Cloud. Run the agent locally on an unused port between 8090-8190, using `agents-cli`.
 ```
 
 _Open the agent on localhost and test it_
@@ -87,7 +87,7 @@ Create another agent, in folder `agents/schedule`. Its purpose is to provide the
 
 Update the me-time agent to accept an environment variable which contains the URL of the sechedule agent's Agent Card. Update the me-time agent to invoke the schedule agent via A2A in parallel with the "outdoor optimizer" and "local events" agents. Use the information about the user's schedule to inform their daily agenda.
 
-Run the schedule agent locally using `agents-cli`, and restart the schedule agent.
+Run the schedule agent locally using `agents-cli` on an unused port between 8090-8190, and restart the schedule agent.
 ```
 
 ### Deploy to Agent Runtime
